@@ -11,10 +11,13 @@
 
 #include "PlayerStatTracker.h"
 
+#include "MyCharacterMovementComponent.h"
+
 //////////////////////////////////////////////////////////////////////////
 // AfightmeCharacter
 
-AfightmeCharacter::AfightmeCharacter()
+AfightmeCharacter::AfightmeCharacter(const class FObjectInitializer& ObjectInitializer) :
+	Super(ObjectInitializer.SetDefaultSubobjectClass<UMyCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -142,4 +145,10 @@ FString AfightmeCharacter::ReturnPlayerStats()
 	out->AppendInt(StatTracker->getHealth());
 
 	return *out;
+}
+
+
+UMyCharacterMovementComponent* AMyCharacter::GetMyMovementComponent() const
+{
+	return static_cast<UMyCharacterMovementComponent*>(GetCharacterMovement());
 }

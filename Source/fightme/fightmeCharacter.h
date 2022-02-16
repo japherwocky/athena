@@ -11,6 +11,10 @@ class AfightmeCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+public:
+	// Sets default values for this character's properties
+	AMyCharacter(const class FObjectInitializer& ObjectInitializer);
+
 
 public:
 	AfightmeCharacter();
@@ -24,8 +28,9 @@ public:
 	float BaseLookUpRate;
 
 
-
-
+	// Our special network friendly movement component
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	UMyCharacterMovementComponent* GetMyMovementComponent() const;
 
 
 
@@ -35,8 +40,6 @@ protected:
 
 	UFUNCTION(BlueprintPure)
 		FString ReturnPlayerStats();
-
-
 
 
 protected:
