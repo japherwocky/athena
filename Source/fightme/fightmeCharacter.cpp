@@ -20,22 +20,22 @@ AfightmeCharacter::AfightmeCharacter(const class FObjectInitializer& ObjectIniti
 	Super(ObjectInitializer.SetDefaultSubobjectClass<UMyCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
 	// Set size for collision capsule
-	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+	// GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);  // we handle this in BPs for now, see ShooterCharacter
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
-	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = false;
-	bUseControllerRotationRoll = false;
+	// bUseControllerRotationPitch = false;
+	// bUseControllerRotationYaw = false;
+	// bUseControllerRotationRoll = false;
 
 	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
-	GetCharacterMovement()->JumpZVelocity = 600.f;
-	GetCharacterMovement()->AirControl = 0.2f;
+	// GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+	// GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
+	// GetCharacterMovement()->JumpZVelocity = 600.f;
+	// GetCharacterMovement()->AirControl = 0.2f;
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
@@ -148,7 +148,7 @@ FString AfightmeCharacter::ReturnPlayerStats()
 }
 
 
-UMyCharacterMovementComponent* AMyCharacter::GetMyMovementComponent() const
+UMyCharacterMovementComponent* AfightmeCharacter::GetMyMovementComponent() const
 {
 	return static_cast<UMyCharacterMovementComponent*>(GetCharacterMovement());
 }

@@ -13,7 +13,7 @@ class AfightmeCharacter : public ACharacter
 
 public:
 	// Sets default values for this character's properties
-	AMyCharacter(const class FObjectInitializer& ObjectInitializer);
+	AfightmeCharacter(const class FObjectInitializer& ObjectInitializer);
 
 
 public:
