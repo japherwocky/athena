@@ -10,6 +10,5 @@ public class fightmeEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V2;
 		ExtraModuleNames.Add("fightme");
-		ExtraModuleNames.Add("FPSGame");
 	}
 }
